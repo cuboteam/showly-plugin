@@ -1,0 +1,20 @@
+{
+  "name": "showly",
+  "description": "Official Showly plugin for AI coding agents.",
+  "owner": {
+    "name": "Showly",
+    "email": "support@showly.ai",
+    "url": "https://showly.ai"
+  },
+  "plugins": [
+    {
+      "name": "showly",
+      "source": "./",
+      "displayName": "Showly",
+      "description": "Preview, publish, and manage websites hosted on Showly.",
+      "category": "productivity",
+      "license": "MIT",
+      "keywords": ["hosting", "mcp", "preview", "publish", "website"]
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "name": "showly",
+  "version": "0.4.8",
+  "description": "Preview, publish, and manage websites hosted on Showly from Gemini CLI.",
+  "contextFileName": "GEMINI.md",
+  "mcpServers": {
+    "showly": {
+      "httpUrl": "https://mcp.showly.ai"
+    }
+  }
+}

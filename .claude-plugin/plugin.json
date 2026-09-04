@@ -1,0 +1,11 @@
+{
+  "name": "showly",
+  "displayName": "Showly",
+  "version": "0.4.8",
+  "description": "Preview, publish, and manage websites hosted on Showly from Claude.",
+  "author": { "name": "Showly", "email": "support@showly.ai" },
+  "homepage": "https://showly.ai/docs/mcp/overview",
+  "repository": "https://github.com/cuboteam/showly-plugin",
+  "license": "MIT",
+  "keywords": ["hosting", "mcp", "preview", "publish", "website"]
+}

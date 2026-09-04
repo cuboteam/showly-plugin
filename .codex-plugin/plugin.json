@@ -1,0 +1,35 @@
+{
+  "name": "showly",
+  "version": "0.4.8",
+  "description": "Preview, publish, and manage websites hosted on Showly from an AI agent.",
+  "author": {
+    "name": "Showly",
+    "email": "support@showly.ai",
+    "url": "https://showly.ai"
+  },
+  "homepage": "https://showly.ai/docs/mcp/overview",
+  "repository": "https://github.com/cuboteam/showly-plugin",
+  "license": "MIT",
+  "keywords": ["hosting", "mcp", "preview", "publish", "website"],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Showly",
+    "shortDescription": "Preview and publish websites from your agent.",
+    "longDescription": "Connect Showly to list and update hosted sites, create private password-protected previews, publish approved versions, restore version history, and manage custom domains.",
+    "developerName": "Showly",
+    "category": "Productivity",
+    "capabilities": ["Interactive", "Write"],
+    "websiteURL": "https://showly.ai",
+    "privacyPolicyURL": "https://showly.ai/legal/privacy",
+    "termsOfServiceURL": "https://showly.ai/legal/terms",
+    "defaultPrompt": [
+      "List the websites I host on Showly.",
+      "Create a private Showly preview for this site.",
+      "Show me what changed between my latest site versions."
+    ],
+    "brandColor": "#111111",
+    "composerIcon": "./assets/showly-logo.svg",
+    "logo": "./assets/showly-logo.svg"
+  },
+  "mcpServers": "./.mcp.json"
+}
