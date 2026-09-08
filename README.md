@@ -82,5 +82,6 @@ an issue.
 
 ## License
 
-MIT — see [LICENSE](LICENSE). This covers the manifests and the skill in this
-repository. The Showly service itself is governed by the terms linked above.
+MIT — see [LICENSE](LICENSE). That covers the manifests and the skill in this
+repository, and the `@showly/mcp-server` package on npm from 0.5.0 onward. The
+Showly service itself is governed by the terms linked above.

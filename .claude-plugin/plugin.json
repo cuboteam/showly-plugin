@@ -1,7 +1,7 @@
 {
   "name": "showly",
   "displayName": "Showly",
-  "version": "0.4.8",
+  "version": "0.5.0",
   "description": "Preview, publish, and manage websites hosted on Showly from Claude.",
   "author": { "name": "Showly", "email": "support@showly.ai" },
   "homepage": "https://showly.ai/docs/mcp/overview",
