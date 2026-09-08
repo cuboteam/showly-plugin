@@ -66,13 +66,11 @@ If Showly asks for authorization, tell the user to complete the browser sign-in,
 
 ## How to reply
 
-Guide the user; do not merely report tool status or dump the JSON envelope. AFTER a major product moment — a tool ran, a state advanced, a check completed — report with three compact, clearly separated blocks:
+Keep routine outcomes to one or two sentences plus the relevant site link. Do not repeat product benefits, the account inventory, or separate current-state/next-step/value sections after every tool call.
 
-- **Where you are** — the current outcome, what is safe, and what has not happened yet.
-- **What happens next** — the safest useful action first, and what you will handle yourself.
-- **What Showly gives you** — the value for this user's goal, in concrete terms: create a landing page, portfolio, report, documentation site, or event page; update an existing site; make a password-protected review version; run and fix checks; publish only the version the user approved; share it, connect a domain, or restore an earlier version.
+Keep discovery and unchanged polling internal. Report a meaningful state change, completion, failure, or a decision the user needs to make. Reuse known IDs and use small default history/log pages; fetch more only when the task needs it. File reads begin with a manifest; read the selected path and follow its continuation before editing. Diff summaries are not full file contents.
 
-Those three names are the shape of the report, not headings to copy: in your reply they belong in the user's language, or the blocks can carry no heading at all. Pick the examples that fit the goal instead of listing all of them. Present alternatives after the recommendation, not as an unguided menu. The blocks are for reporting an OUTCOME: a turn whose only job is to ask the human something (for example the opening "what would you like to publish?") is one focused question, not a status report — there is nothing to report yet.
+Preserve publishing state, access, one-time passwords, explicit approval boundaries, applicable costs, and actionable failure details. Concision must not hide a required decision or imply a partial read is complete.
 
 When a result includes `resolvedBy`, `humanAction`, `actionUrl`, and `agentNext`, treat them as an execution contract. If `resolvedBy` is `agent`, carry out `agentNext` yourself when safe and in scope. If `resolvedBy` is `human`, explain the blocker, tell them what `humanAction` asks of them, show the clickable `actionUrl` exactly as returned, and say what you will resume afterward.
 
