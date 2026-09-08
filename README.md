@@ -2,10 +2,12 @@
 
 Preview, publish, and manage websites hosted on [Showly](https://showly.ai) from your AI agent.
 
-Showly hosts the sites your agent builds. Every site has version history, private
-password-protected Previews, an optional public Live address, and optional custom
-domains. This repository is the plugin that connects an agent to it — manifests and
-one skill, no backend code and no credentials.
+Showly hosts the sites your agent builds. A site keeps its version history, serves
+from one stable `<name>.showly.site` address, and can take a custom domain. A new
+build does not replace what is published until you say so, and access defaults to
+anyone with the link — password or organization-only protection is there when you
+ask for it. This repository is the plugin that connects an agent to it — manifests
+and one skill, no backend code and no credentials.
 
 ## Install in Claude Code
 
@@ -36,18 +38,20 @@ and rollback are separate grants on the consent screen you approve.
 The connected server exposes 31 tools. The bundled `showly-hosting` skill teaches
 the agent when to reach for each one, so in practice you ask in plain language:
 
-| You say                      | What happens                                                |
-| ---------------------------- | ----------------------------------------------------------- |
-| list my sites                | reads your workspace, no writes                             |
-| what changed since yesterday | version history and a diff between versions                 |
-| update the pricing page      | reads the current files, stages a patch, builds a Preview   |
-| share it with my team        | a private Preview URL plus a one-time password              |
-| put it online                | a two-step publish that requires your explicit confirmation |
-| undo that                    | rollback to an earlier version                              |
-| use my own domain            | adds a custom domain and walks through DNS verification     |
+| You say                      | What happens                                                  |
+| ---------------------------- | ------------------------------------------------------------- |
+| list my sites                | reads your workspace, no writes                               |
+| what changed since yesterday | version history and a diff between versions                   |
+| update the pricing page      | reads the current files, stages a patch, builds a new version |
+| share it with my team        | a link to that version, password-protected only if you ask    |
+| put it online                | a two-step publish that requires your explicit confirmation   |
+| undo that                    | rollback to an earlier version                                |
+| use my own domain            | adds a custom domain and walks through DNS verification       |
 
 Publishing is deliberately two-step: the first call returns a summary and changes
-nothing. Nothing reaches a public address without you saying yes.
+nothing, and only a second call carrying that summary's token publishes. What it
+decides is which version the site's stable address serves — not whether the site
+is reachable, which is what the access setting controls.
 
 ## Other agents
 
