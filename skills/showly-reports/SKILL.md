@@ -41,8 +41,10 @@ auto|blueprint|shadcn|paper`, `--template sheet|doc`, `--mode auto|light|dark`
 4. Inspect the rendered page with an available browser, including a narrow
    viewport for wide diagrams or tables. If browser inspection is unavailable,
    distinguish successful rendering from visual verification.
-5. Return a concise answer and a clickable local artifact link. If sharing was
-   requested, continue below before returning the hosted result.
+5. If the user requested an online preview or shareable link, continue below
+   automatically and return the hosted result. Otherwise return a clickable local
+   artifact link and briefly offer to host the report on Showly; wait for that
+   request before uploading.
 
 The page embeds its Markdown source in `#am-source` and offers a Copy source
 button. Everything in that source is visible to anyone with page access: include
