@@ -1,0 +1,12 @@
+{
+  "repository": "https://github.com/QingYunA/answer-me-with-html",
+  "version": "0.4.14",
+  "commit": "e729b248816c0c420531ee61be0d1aac6b197220",
+  "sourcePath": "skills/answer-me-with-html/scripts/am.mjs",
+  "sha256": "980f248600ab7516be3f8698c08c7f38f4d99b4b831188cccfdfe4f206fd0684",
+  "dependencies": {
+    "marked": "18.0.14",
+    "@dagrejs/dagre": "3.1.1",
+    "@dagrejs/graphlib": "4.0.5"
+  }
+}

@@ -7,7 +7,7 @@ from one stable `<name>.showly.site` address, and can take a custom domain. A ne
 build does not replace what is published until you say so, and access defaults to
 anyone with the link — password or organization-only protection is there when you
 ask for it. This repository is the plugin that connects an agent to it — manifests
-and one skill, no backend code and no credentials.
+and reusable hosting and report skills, no backend code and no credentials.
 
 ## Install in Claude Code
 
@@ -53,6 +53,21 @@ nothing, and only a second call carrying that summary's token publishes. What it
 decides is which version the site's stable address serves — not whether the site
 is reachable, which is what the access setting controls.
 
+## Visual reports
+
+The bundled `showly-reports` skill turns Markdown drafts into visual HTML reports,
+with diagrams, tables, themes and light/dark mode. Ask: “Compare these options in
+a visual report and give me a Showly share link.” A local shell and Node.js 20+
+are required for rendering; connecting remote MCP alone does not run the renderer.
+Reports stay local unless sharing is requested. Shared reports use Showly's
+existing access, version and publishing controls.
+
+The pinned renderer is based on Answer me with HTML. No separate install is
+needed; updates come through Showly. This integration supports static reports and
+section edits, with video and voice outside its scope. See the
+[report skill](skills/showly-reports/SKILL.md) and
+[third-party licenses](skills/showly-reports/THIRD_PARTY_LICENSES.txt).
+
 ## Other agents
 
 The same endpoint serves every MCP client. This repository also carries the
@@ -82,6 +97,6 @@ an issue.
 
 ## License
 
-MIT — see [LICENSE](LICENSE). That covers the manifests and the skill in this
+MIT — see [LICENSE](LICENSE). That covers the manifests and Showly's skills in this
 repository, and the `@showly/mcp-server` package on npm from 0.5.0 onward. The
 Showly service itself is governed by the terms linked above.
