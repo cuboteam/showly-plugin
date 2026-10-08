@@ -1,6 +1,6 @@
 {
   "name": "showly",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "description": "Preview, publish, and manage websites hosted on Showly from Cursor.",
   "author": { "name": "Showly", "email": "support@showly.ai" },
   "homepage": "https://showly.ai/docs/mcp/overview",

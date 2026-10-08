@@ -3,7 +3,7 @@
   "name": "ai.showly/showly",
   "title": "Showly",
   "description": "Preview, publish, and manage websites hosted on Showly.",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "websiteUrl": "https://showly.ai",
   "repository": {
     "url": "https://github.com/cuboteam/showly-plugin",
