@@ -7,7 +7,7 @@ from one stable `<name>.showly.site` address, and can take a custom domain. A ne
 build does not replace what is published until you say so, and access defaults to
 anyone with the link — password or organization-only protection is there when you
 ask for it. This repository is the plugin that connects an agent to it — manifests
-and reusable hosting and report skills, no backend code and no credentials.
+and reusable hosting, report, design and copy skills, no backend code and no credentials.
 
 ## Install in Claude Code
 
@@ -68,6 +68,25 @@ section edits, with video and voice outside its scope. See the
 [report skill](skills/showly-reports/SKILL.md) and
 [third-party licenses](skills/showly-reports/THIRD_PARTY_LICENSES.txt).
 
+## Design and copy editing
+
+Ask “Polish this page while keeping its branding” to use `showly-design`, or
+“Make this Chinese or English copy sound more natural” to use `showly-copy`.
+The design skill also guides new website layouts; the copy skill edits existing
+prose while preserving facts, qualifications and the author's voice. References
+load by task and language. These are compact, locally adapted instructions from
+Impeccable and Humanizer, not the complete upstream tool suites.
+
+Both skills work through the agent's existing tools, without extra engines,
+hooks or runtime downloads. Skill selection depends on the host agent. A remote
+MCP connection alone does not install these local skills. Editing alone does not
+upload or publish content; requested sharing follows the hosting workflow.
+
+See the [design skill](skills/showly-design/SKILL.md),
+[copy skill](skills/showly-copy/SKILL.md), and their
+[design notices](skills/showly-design/THIRD_PARTY_LICENSES.txt) and
+[copy notices](skills/showly-copy/THIRD_PARTY_LICENSES.txt).
+
 ## Other agents
 
 The same endpoint serves every MCP client. This repository also carries the
@@ -98,5 +117,7 @@ an issue.
 ## License
 
 MIT — see [LICENSE](LICENSE). That covers the manifests and Showly's skills in this
-repository, and the `@showly/mcp-server` package on npm from 0.5.0 onward. The
+repository, and the `@showly/mcp-server` package on npm from 0.5.0 onward,
+except third-party and derived material under its stated licenses. The design
+skill is Apache-2.0; see its bundled notices. The
 Showly service itself is governed by the terms linked above.
