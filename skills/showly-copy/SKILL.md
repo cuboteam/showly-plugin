@@ -20,13 +20,29 @@ a specialized language review that these references do not provide.
 Keep every distinct claim and its actor, scope, time, comparison, negation,
 attribution and degree of certainty. Plans remain plans; correlation does not
 become causation; unverified outcomes do not become measured improvements.
-Do not add statistics, testimonials, citations, personal experiences or emotions
-that the source or user did not supply. A voice sample controls expression, not
-facts: never import its biography or opinions into the edited text.
+Do not add statistics, testimonials, citations, personal experiences or claims
+about how someone feels that the source or user did not supply. A voice sample
+controls expression, not facts: never import its biography or opinions into the edited text.
 
 Respect the genre and editing scope. Technical and formal prose can stay formal.
 A real contrast, three-item list, repeated phrase or dash is not an error by itself.
 Clear writing can stay unchanged. Preserve quoted text, names and brand terminology.
+
+## Keep the relationship, not the padding
+
+Concision is not emotional neutrality. In support messages, invitations and brand
+copy, preserve the useful social act: acknowledging a delay, offering a welcome,
+thanking someone or expressing the author's supplied attitude. Replace inflated
+empathy with a brief, context-specific acknowledgment rather than deleting warmth
+by default. A conventional courtesy such as “Sorry for the wait” is appropriate
+when a wait is established; it must not add an admission of fault, refund promise,
+new commitment or assertion about the reader's emotions.
+
+Match the warmth to the genre and voice. Do not insert apologies into neutral
+technical documentation or add cheerful language to serious news. Check whether
+the edited message still sounds like someone addressing its intended reader, not
+just a list of facts. Shorter is not automatically better; retain meaningful
+rhythm, humor and invitations even when they carry no new product facts.
 
 ## Edit and compare
 

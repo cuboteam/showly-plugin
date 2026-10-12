@@ -23,6 +23,9 @@ DESIGN.md does not mean the site has no established design.
   [refine.md](references/refine.md). A review request returns findings; it does
   not implicitly authorize a rewrite.
 
+For new pages and redesigns, make the chosen brand character visible in layout,
+typography and imagery; “polished” does not always mean quiet or minimal.
+
 Infer the audience, primary action and visual direction from the brief and
 existing work. Ask only about a missing choice that would materially change the
 result. A small spacing fix does not need a branding interview or a design document.

@@ -34,3 +34,14 @@ an error.
 Match a supplied voice sample's rhythm and punctuation without copying its facts.
 A formal report should not acquire jokes, first-person reactions or invented
 personal experience merely to sound human.
+
+## Warmth without performed empathy
+
+For an established delay, “We deeply understand how incredibly frustrating this
+must be” can become “Sorry for the wait.” Keep the acknowledgment alongside the
+status and next step; do not assert how the reader feels. Preserve a natural
+“Thanks for bearing with us” when it fits the supplied voice. Do not scatter
+thanks, apologies or exclamation marks through neutral technical prose.
+
+A welcome or an invitation can be useful even when it adds no product fact.
+Judge it by the relationship and genre, not by word count alone.
