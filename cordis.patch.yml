@@ -1,0 +1,7 @@
+- insert:
+    - id: mcp-showly
+      name: "@deepseek-ai/dsh-mcp-client"
+      config:
+        serverName: showly
+        transport: streamable-http
+        url: https://mcp.showly.ai

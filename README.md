@@ -92,13 +92,55 @@ See the [design skill](skills/showly-design/SKILL.md),
 The same endpoint serves every MCP client. This repository also carries the
 manifests those hosts expect:
 
-| Host           | File                                                  |
-| -------------- | ----------------------------------------------------- |
-| Claude Code    | `.claude-plugin/plugin.json`                          |
-| Codex          | `.codex-plugin/plugin.json`                           |
-| Cursor         | `plugin.json`, `mcp.json`                             |
-| Gemini CLI     | `gemini-extension.json`                               |
-| Any MCP client | `server.json`, or point it at `https://mcp.showly.ai` |
+| Host             | File                                                  |
+| ---------------- | ----------------------------------------------------- |
+| Claude Code      | `.claude-plugin/plugin.json`                          |
+| Codex            | `.codex-plugin/plugin.json`                           |
+| Cursor           | `plugin.json`, `mcp.json`                             |
+| Gemini CLI       | `gemini-extension.json`                               |
+| OpenClaw         | `.claude-plugin/plugin.json`, `.mcp.json`             |
+| DeepSeek Harness | `package.json`, `cordis.patch.yml`                    |
+| Hermes Agent     | `hermes/plugin.json`, `hermes/mcp.json`               |
+| Any MCP client   | `server.json`, or point it at `https://mcp.showly.ai` |
+
+### OpenClaw
+
+OpenClaw reads this tree as a Claude bundle because `.claude-plugin/` is present, so it uses `.mcp.json` rather than a separate OpenClaw manifest. `.mcp.json` says `type: "http"`; OpenClaw treats that as its `streamable-http` alias, so the same file Claude and Cursor install is the one OpenClaw connects with. Do not rewrite it to `transport: streamable-http`.
+
+```bash
+openclaw plugins install ./showly-plugin
+```
+
+Sign-in is separate from the bundle. `npx @showly/mcp-server login --to openclaw` writes the token into `~/.openclaw/openclaw.json`, then run `openclaw mcp reload`.
+
+### DeepSeek Harness
+
+`package.json` declares a DSH bundle whose patch inserts the official MCP client pointed at `https://mcp.showly.ai`. The patch carries no credential. DSH has no Showly login command; the endpoint is the same OAuth-protected server every other host uses, and the client must obtain a token itself.
+
+From the directory that contains this checkout:
+
+```bash
+dsh plugin --profile <name> add ./showly-plugin
+```
+
+Or, once this repository is the copy you want:
+
+```bash
+dsh plugin --profile <name> add github:cuboteam/showly-plugin
+```
+
+Nothing is enabled until that profile installs it.
+
+### Hermes Agent
+
+Hermes portable plugins need `type: streamable-http` and their own `plugin.json`. Cursor already owns the repository root for both of those files, so the Hermes plugin is the `hermes/` directory. It bundles the same skills. `hermes/mcp.json` has no credential.
+
+```bash
+hermes plugins install ./showly-plugin/hermes --force
+hermes plugins enable showly
+```
+
+Sign-in is `npx @showly/mcp-server login --to hermes`, which writes `~/.hermes/config.yaml`. Restart Hermes afterwards. A community-catalog pin needs the mirror commit that exists only after a release, so it is not part of this repository.
 
 ## Links
 

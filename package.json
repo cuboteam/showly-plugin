@@ -1,0 +1,17 @@
+{
+  "name": "showly-dsh",
+  "version": "0.7.2",
+  "description": "Preview, publish, and manage websites hosted on Showly from DeepSeek Harness.",
+  "license": "MIT",
+  "type": "module",
+  "main": "index.js",
+  "files": [
+    "index.js",
+    "cordis.patch.yml"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}
