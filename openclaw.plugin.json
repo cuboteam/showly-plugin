@@ -1,0 +1,16 @@
+{
+  "id": "showly",
+  "categories": ["infrastructure"],
+  "skills": ["skills"],
+  "mcpServers": {
+    "showly": {
+      "transport": "streamable-http",
+      "url": "https://mcp.showly.ai"
+    }
+  },
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {}
+  }
+}

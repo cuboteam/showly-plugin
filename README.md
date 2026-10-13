@@ -99,13 +99,14 @@ manifests those hosts expect:
 | Cursor           | `plugin.json`, `mcp.json`                             |
 | Gemini CLI       | `gemini-extension.json`                               |
 | OpenClaw         | `.claude-plugin/plugin.json`, `.mcp.json`             |
+| ClawHub          | `openclaw.plugin.json`                                |
 | DeepSeek Harness | `package.json`, `cordis.patch.yml`                    |
 | Hermes Agent     | `hermes/plugin.json`, `hermes/mcp.json`               |
 | Any MCP client   | `server.json`, or point it at `https://mcp.showly.ai` |
 
 ### OpenClaw
 
-OpenClaw reads this tree as a Claude bundle because `.claude-plugin/` is present, so it uses `.mcp.json` rather than a separate OpenClaw manifest. `.mcp.json` says `type: "http"`; OpenClaw treats that as its `streamable-http` alias, so the same file Claude and Cursor install is the one OpenClaw connects with. Do not rewrite it to `transport: streamable-http`.
+OpenClaw reads this tree as a bundle (both `.codex-plugin/` and `.claude-plugin/` are present), so it uses `.mcp.json` and the bundled `skills/` rather than loading plugin code. `.mcp.json` says `type: "http"`; OpenClaw treats that as its `streamable-http` alias, so the same file Claude and Cursor install is the one OpenClaw connects with. Do not rewrite it to `transport: streamable-http`. The root `openclaw.plugin.json` is the catalog manifest ClawHub reads when listing this plugin; `package.json` deliberately leaves `openclaw.extensions` unset, which is the field that would make OpenClaw load that manifest instead of the bundle.
 
 ```bash
 openclaw plugins install ./showly-plugin
