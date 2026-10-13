@@ -1,5 +1,6 @@
 #!/usr/bin/env node
-// Showly's static-report entrypoint. Keep the vendored renderer unmodified.
+// Showly's static-report entrypoint. scripts/vendor/am.mjs is vendored, not
+// source: read references/upstream.md before changing it.
 import { mkdtempSync, readFileSync, rmSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
@@ -79,7 +80,6 @@ function main(args) {
           ...process.env,
           AM_HOME: configHome,
           AM_NO_OPEN: "1",
-          AM_NO_UPDATE_CHECK: "1",
         },
       },
     );

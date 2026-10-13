@@ -7215,63 +7215,25 @@ function writeState(home, patch) {
 }
 
 // src/update.js
-import { spawn as spawn3 } from "node:child_process";
-var UPDATE = Object.freeze({
-  checkEveryDays: 7,
-  hintEveryDays: 3,
-  timeoutMs: 5e3,
-  url: "https://raw.githubusercontent.com/QingYunA/answer-me-with-html/main/package.json"
-});
-var SEMVER = /^v?(\d+)\.(\d+)\.(\d+)$/;
-function parseVersion(v) {
-  const m = String(v).trim().match(SEMVER);
-  return m ? m.slice(1, 4).map(Number) : null;
+// VENDOR PATCH (Showly): upstream's self-update check is removed from this build.
+// Upstream polled its own package.json weekly and told the user to run an update
+// command. A vendored copy that kept it would reach out to GitHub from inside a
+// user's installed skill and would carry a second update path beside Showly's, so
+// the check is gone rather than merely disabled. The helpers below keep the call
+// sites in src/cli.js valid: they report no version, spawn nothing and fetch
+// nothing. The exact modification is recorded in scripts/vendor/upstream.json;
+// read references/upstream.md before re-vendoring.
+var updateEnabled = () => false;
+function updateHint() {
+  return null;
 }
-function newer(a, b) {
-  const pa = parseVersion(a);
-  const pb = parseVersion(b);
-  if (!pa || !pb) return false;
-  const i = pa.findIndex((n, k2) => n !== pb[k2]);
-  return i !== -1 && pa[i] > pb[i];
+function shouldCheckUpdate() {
+  return false;
 }
-function updateCommand(scriptPath = "") {
-  if (/[\\/]\.claude[\\/]plugins[\\/]/.test(scriptPath)) {
-    return "run claude plugin update answer-me-with-html@answer-me-with-html in a terminal (or click Update now on the Installed tab of /plugin), then /reload-plugins";
-  }
-  if (/[\\/]bin[\\/]am\.js$/.test(scriptPath)) {
-    return "run git pull && npm install in the answer-me-with-html repository";
-  }
-  return "run npx skills update answer-me-with-html -y";
+function spawnUpdateCheck() {
 }
-var updateEnabled = (env, config) => !(config.update_check === false || env.CI || env.AM_NO_UPDATE_CHECK);
-function updateHint(state, current, scriptPath, now = Date.now()) {
-  if (!newer(state.latestVersion, current)) return null;
-  if (state.lastUpdateHint && now - state.lastUpdateHint < UPDATE.hintEveryDays * DAY) return null;
-  return `! Update hint: Answer me with HTML ${state.latestVersion} is available (current ${current}). Ask the user whether to update: ${updateCommand(scriptPath)}.`;
-}
-function shouldCheckUpdate(state, env, config, now = Date.now()) {
-  if (!updateEnabled(env, config)) return false;
-  return !state.lastUpdateCheck || now - state.lastUpdateCheck >= UPDATE.checkEveryDays * DAY;
-}
-function spawnUpdateCheck(home, scriptPath) {
-  writeState(home, { lastUpdateCheck: Date.now() });
-  try {
-    spawn3(process.execPath, [scriptPath, "__update-check"], { detached: true, stdio: "ignore", env: { ...process.env, AM_HOME: home } }).on("error", () => {
-    }).unref();
-  } catch {
-  }
-}
-async function runUpdateCheck(home, fetchImpl = fetch) {
-  try {
-    const res = await fetchImpl(UPDATE.url, { signal: AbortSignal.timeout(UPDATE.timeoutMs) });
-    if (!res.ok) return null;
-    const { version } = await res.json();
-    if (!parseVersion(version)) return null;
-    writeState(home, { latestVersion: version.trim(), lastUpdateCheck: Date.now() });
-    return version.trim();
-  } catch {
-    return null;
-  }
+async function runUpdateCheck() {
+  return null;
 }
 
 // src/housekeeping.js
@@ -7373,7 +7335,6 @@ var CONFIG_KEYS = Object.freeze({
   theme: { type: "enum", choices: CHOICES.theme, default: AUTO, label: "Default theme (auto: paper for long text, blueprint for diagrams)" },
   mode: { type: "enum", choices: CHOICES.mode, default: "auto", label: "Default light/dark mode" },
   style: { type: "enum", choices: CHOICES.style, default: "80", label: "STE writing-check strictness" },
-  update_check: { type: "bool", default: true, label: "Check for a new version once a week in the background and tell you (never updates by itself)" },
   voice: { type: "enum", choices: VOICES, default: "auto", label: "Video narration voice-over (auto: ElevenLabs if ELEVENLABS_API_KEY is set, otherwise system TTS; local: the local service at AM_TTS_URL)" }
 });
 var TRUE = /* @__PURE__ */ new Set(["on", "true", "yes", "1", "\u5F00", "\u5F00\u542F", "\u6253\u5F00"]);
