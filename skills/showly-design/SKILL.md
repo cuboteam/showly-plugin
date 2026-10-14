@@ -7,7 +7,7 @@ license: Apache-2.0
 # Design websites with Showly
 
 Use the user's brief and the site's own visual identity to guide the design.
-This is portable design guidance; it requires no Impeccable installation, engine,
+This is portable design guidance; it requires no upstream skill installation, engine,
 hooks or downloads. Use the editing and browser tools available in the host.
 
 ## Choose the scope
@@ -22,6 +22,13 @@ DESIGN.md does not mean the site has no established design.
 - For polishing, reviewing or fixing an existing interface, read
   [refine.md](references/refine.md). A review request returns findings; it does
   not implicitly authorize a rewrite.
+
+When the requested work includes interactive controls, overlays or motion, read
+[interaction.md](references/interaction.md). For mobile forms, sheets, scrolling
+or touch behavior, read [mobile.md](references/mobile.md). For data-driven layouts
+or a requested robustness review, use [edge-cases.md](references/edge-cases.md).
+Load only the references relevant to the changed surface; a static text edit does
+not need an animation audit.
 
 For new pages and redesigns, make the chosen brand character visible in layout,
 typography and imagery; “polished” does not always mean quiet or minimal.
@@ -56,7 +63,10 @@ Build, inspect, fix the concrete defects in one batch, then confirm the fixes.
 Stop when the requested result works; further passes need a new finding. If the
 page cannot run or browser tools are unavailable, inspect the source and state
 which visual or interaction checks remain unverified. Never call source inspection
-a visual test or claim accessibility compliance from a screenshot.
+a visual test or claim accessibility compliance from a screenshot. For changed
+interactions, exercise the transition as well as its final screenshot: repeat or
+interrupt the action, check keyboard focus and reduced motion. A recording shows
+behavior; it does not prove frame-rate performance or real-phone compatibility.
 
 Deliver the requested files or review, with a short account of meaningful changes
 and checks. Design work alone does not authorize upload or publication. If the
