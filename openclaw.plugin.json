@@ -1,5 +1,6 @@
 {
   "id": "showly",
+  "name": "Showly",
   "categories": ["infrastructure"],
   "skills": ["skills"],
   "mcpServers": {
